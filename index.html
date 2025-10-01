@@ -35,13 +35,13 @@
     }
 
     h1 {
-      font-size: 2.2rem; /* lebih kecil agar rapi */
+      font-size: 2.2rem;
       margin-bottom: 10px;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
     }
 
     .typing {
-      font-size: 1.2rem; /* ukuran kecil biar sama vibe dengan popup */
+      font-size: 1.2rem;
       border-right: 3px solid white;
       display: inline-block;
       white-space: nowrap;
@@ -49,7 +49,6 @@
       width: 0;
       animation: typing 6s steps(40, end) forwards, blink .75s step-end infinite;
     }
-
     @keyframes typing {
       from { width: 0; }
       to { width: 100%; }
@@ -71,8 +70,8 @@
       animation: floatSway 10s linear forwards;
       box-shadow: inset -10px -15px 30px rgba(0,0,0,0.3), inset 10px 10px 20px rgba(255,255,255,0.5);
       cursor: pointer;
+      z-index: 5;
     }
-
     .balloon::after {
       content: '';
       position: absolute;
@@ -83,7 +82,6 @@
       background: no-repeat center/contain url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='130'><path d='M20 0 Q10 30 20 60 T20 120' stroke='%23444' stroke-width='2' fill='none'/></svg>");
       transform: translateX(-50%);
     }
-
     @keyframes floatSway {
       0%   { transform: translate(0, 0); }
       25%  { transform: translate(-20px, -25vh); }
@@ -91,7 +89,6 @@
       75%  { transform: translate(-15px, -75vh); }
       100% { transform: translate(15px, -110vh); opacity: 0; }
     }
-
     .pop {
       animation: popAnim 0.3s ease forwards !important;
     }
@@ -107,24 +104,13 @@
       height: 10px;
       top: -10px;
       animation: fall 3s linear infinite;
+      z-index: 4;
     }
     @keyframes fall {
       to { transform: translateY(100vh) rotate(720deg); }
     }
 
-    /* 🎀 Karakter */
-    .character {
-      width: 200px;
-      margin: 15px auto;
-      animation: sway 3s ease-in-out infinite;
-      position: relative;
-    }
-    @keyframes sway {
-      0%, 100% { transform: rotate(0deg) translateY(0); }
-      50% { transform: rotate(3deg) translateY(-5px); }
-    }
-
-    /* ✨ Efek bintang kilau */
+    /* ✨ Bintang kilau */
     .star {
       position: absolute;
       width: 10px;
@@ -182,11 +168,12 @@
       border-radius: 15px;
       max-width: 500px;
       width: 100%;
-      text-align: center;
+      text-align: justify;
       position: relative;
       font-family: 'Baloo 2', cursive;
       box-shadow: 0 5px 25px rgba(0,0,0,0.3);
       animation: zoomIn 0.4s ease;
+      line-height: 1.6;
     }
     @keyframes zoomIn {
       from {transform: scale(0.7); opacity: 0;}
@@ -196,11 +183,10 @@
       margin-bottom: 12px;
       color: #ff4d6d;
       font-size: 1.4rem;
+      text-align: center;
     }
     .popup-content p {
       font-size: 1rem;
-      line-height: 1.6;
-      text-align: justify;
     }
     .close-btn {
       position: absolute;
@@ -214,21 +200,10 @@
       font-size: 1rem;
     }
 
-    /* 📱 Responsif untuk HP */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 1.6rem;
-      }
-      .typing {
-        font-size: 1rem;
-        white-space: normal;
-        border-right: none;
-        width: auto;
-      }
-      .popup-content {
-        max-width: 90%;
-        padding: 15px;
-      }
+      h1 { font-size: 1.6rem; }
+      .typing { font-size: 1rem; white-space: normal; border-right: none; width: auto; }
+      .popup-content { max-width: 90%; padding: 15px; }
     }
   </style>
 </head>
@@ -236,17 +211,10 @@
   <div class="container">
     <h1>🎂 Selamat Ulang Tahun! 🎂</h1>
     <p class="typing">Seperti bintang yang terus bersinar, semoga hidupmu penuh cahaya kebahagiaan ✨🎉</p>
-    <div class="character">
-      <img src="img/image.png" alt="Chibi Birthday" width="180">
-      <!-- bintang hias -->
-      <div class="star" style="top:10px; left:20px;"></div>
-      <div class="star" style="top:30px; right:40px; animation-delay:1s;"></div>
-      <div class="star" style="bottom:20px; left:50px; animation-delay:0.5s;"></div>
-    </div>
     <button class="btn-quote" onclick="showPopup()">💌 Ucapan Kecilku</button>
   </div>
 
-  <!-- 📌 Popup Quote -->
+  <!-- 📌 Popup Ucapan -->
   <div class="popup" id="popup">
     <div class="popup-content">
       <button class="close-btn" onclick="closePopup()">✖</button>
@@ -267,8 +235,6 @@
   <audio autoplay loop>
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
   </audio>
-
-  <!-- Suara pop -->
   <audio id="popSound">
     <source src="https://www.myinstants.com/media/sounds/pop-cat.mp3" type="audio/mpeg">
   </audio>
@@ -313,7 +279,7 @@
     }
     setInterval(createConfetti, 200);
 
-    // 📌 Popup Functions
+    // 📌 Popup
     function showPopup() {
       document.getElementById("popup").classList.add("active");
     }

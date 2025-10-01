@@ -129,6 +129,8 @@
       padding: 20px;
       border-radius: 15px;
       max-width: 600px;
+      max-height: 80vh; /* biar gak terlalu panjang */
+      overflow-y: auto; /* bisa discroll kalau teks panjang */
       text-align: center;
       font-family: 'Baloo 2', cursive;
       box-shadow: 0 5px 25px rgba(0,0,0,0.3);
@@ -145,6 +147,7 @@
     .popup-content p {
       font-size: 1.1rem;
       line-height: 1.5;
+      text-align: justify;
     }
     .close-btn {
       position: absolute;
@@ -197,10 +200,11 @@
         padding: 8px 14px;
       }
       .popup-content h2 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
       .popup-content p {
         font-size: 0.9rem;
+        line-height: 1.4;
       }
     }
   </style>
@@ -224,8 +228,12 @@
       <button class="close-btn" onclick="closePopup()">✖</button>
       <h2>💖 Selamat Ulang Tahun 💖</h2>
       <p>
-        Selamat ulang tahun 🎉 Semoga panjang umur, sehat selalu, rezeki lancar,  
-        dan selalu dikelilingi kebahagiaan bersama orang-orang tercinta 💐
+        Selamat ulang tahun, sahabatku. Di hari istimewa ini, aku ingin mendoakan yang terbaik untukmu. 
+        Semoga di setiap langkahmu selalu disertai kesehatan, keberkahan, dan kebahagiaan yang tiada henti. 🌹 
+        Usia yang bertambah bukan hanya sekadar angka, tetapi juga tanda kedewasaan dan pengalaman baru 
+        yang semakin memperkaya hidupmu. Terima kasih telah menjadi teman yang selalu ada, mendukung, dan 
+        memberi warna dalam perjalanan hidupku. Semoga segala impianmu dapat terwujud, dan kamu selalu 
+        dikelilingi orang-orang baik yang tulus menyayangimu. Selamat merayakan hari bahagiamu 🧁✨
       </p>
     </div>
   </div>
